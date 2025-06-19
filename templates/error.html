@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error - Something Went Wrong
+{% endblock %}
+
+
+{% block main %}
+
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+            <!-- Generic Error Icon -->
+            <div class="mb-4">
+                <i class="bi bi-exclamation-triangle display-1 text-muted"></i>
+            </div>
+            
+            <!-- Generic Error Code Display -->
+            <h1 class="display-1 fw-light text-muted mb-3">Oops!</h1>
+            
+            <!-- Generic Error Title -->
+            <h2 class="h3 fw-normal text-secondary mb-3">Something Went Wrong</h2>
+            
+            <!-- Generic Error Message -->
+            <p class="lead text-muted mb-4">
+                We encountered an issue while processing your request. This could be due to:
+            </p>
+            
+            <!-- Error Reasons List -->
+            <div class="mb-4">
+                <ul class="list-unstyled text-muted">
+                    <li class="mb-2"><i class="bi bi-dot me-2"></i>The page you're looking for doesn't exist</li>
+                    <li class="mb-2"><i class="bi bi-dot me-2"></i>You don't have permission to access this resource</li>
+                    <li class="mb-2"><i class="bi bi-dot me-2"></i>There's a temporary server issue</li>
+                    <li class="mb-2"><i class="bi bi-dot me-2"></i>The service is currently unavailable</li>
+                    <li class="mb-2"><i class="bi bi-dot me-2"></i>Your request couldn't be processed</li>
+                </ul>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="mb-4">
+                <a href="/" class="btn btn-dark px-4 py-2 me-3">
+                    <i class="bi bi-house-fill me-2"></i>Go Home
+                </a>
+                <a href="javascript:history.back()" class="btn btn-outline-secondary px-4 py-2">
+                    <i class="bi bi-arrow-left me-2"></i>Go Back
+                </a>
+            </div>
+            
+            <!-- Additional Help -->
+            <div class="mb-3">
+                <a href="/contact" class="btn btn-outline-primary btn-sm">
+                    <i class="bi bi-envelope me-2"></i>Contact Support
+                </a>
+            </div>
+            
+            <!-- Footer Message -->
+            <div>
+                <small class="text-muted">
+                    If the problem persists, please try again later or contact our support team.
+                </small>
+            </div>
+        </div>
+    </div>
+{% endblock %}

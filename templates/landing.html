@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center" style="min-height: 60vh;">
+        <div class="col-lg-7 text-center">
+            <h1 class="display-3 fw-bold mb-4" style="background: linear-gradient(45deg, #ff6a00, #ee0979);  ">Scholarlyze</h1>
+            <p class="lead mb-4 text-secondary">Your personal study tracker. Log your sessions, manage your subjects, and visualize your progress with ease.</p>
+            <div class="mb-4">
+                <img src="https://img.icons8.com/color/96/000000/open-book--v2.png" alt="Study Icon" style="height: 96px;">
+            </div>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="/register" class="btn btn-lg btn-gradient text-white px-5" style="background: linear-gradient(45deg, #ff6a00, #ee0979); border: none;">Get Started</a>
+                <a href="/login" class="btn btn-lg btn-outline-primary px-5">Log In</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

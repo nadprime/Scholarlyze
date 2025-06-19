@@ -1,0 +1,6 @@
+Flask
+Werkzeug
+cs50
+Flask-Session
+pytz
+requests

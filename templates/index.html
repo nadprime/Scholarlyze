@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log Study Session
+{% endblock %}
+
+{% block main %}
+    <div class="container my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="card border-0">
+                    <div class="card-body text-black">
+                        <h3 class="mb-0 text-center">Log New Study Session</h3>
+                    </div>
+                    <div class="card-body p-5">
+                        <form action="/" method="post">
+                            <div class="mb-4">
+                                <label for="subject_id" class="form-label fw-bold">Subject:</label>
+                                <select class="form-select border-primary" id="subject_id" name="subject_id" required>
+                                    <option value="" disabled selected>Select a subject...</option>
+                                    {% for subject in subjects %}
+                                        <option value="{{ subject.id }}">{{ subject.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="form-text text-muted mt-2">
+                                    No subjects listed? <a href="/subjects" class="text-primary">Manage your subjects here</a>.
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="start_time" class="form-label fw-bold">Start Time:</label>
+                                    <input type="datetime-local" class="form-control border-primary" id="start_time" name="start_time" required>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="end_time" class="form-label fw-bold">End Time:</label>
+                                    <input type="datetime-local" class="form-control border-primary" id="end_time" name="end_time" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="notes" class="form-label fw-bold">Notes (Optional):</label>
+                                <textarea class="form-control border-primary" id="notes" name="notes" rows="3" placeholder="Any specific topics covered, difficulties, etc."></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-gradient btn-lg text-white" type="submit" style="background: linear-gradient(45deg, #ff6a00, #ee0979); border: none;">
+                                    Log Session
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add scripts here -->
+    <script>
+        // Disable "Log Session" button if no subjects are available
+        const subjectSelect = document.getElementById("subject_id");
+        const logButton = document.querySelector("button[type='submit']");
+
+        if (subjectSelect.options.length <= 1) {
+            logButton.disabled = true;
+        }
+
+        // Validate that end_time is after start_time
+        document.querySelector("form").addEventListener("submit", function (event) {
+            const startTime = new Date(document.getElementById("start_time").value);
+            const endTime = new Date(document.getElementById("end_time").value);
+
+            if (endTime <= startTime) {
+                event.preventDefault();
+                alert("End time must be after start time.");
+            }
+        });
+    </script>
+{% endblock %}

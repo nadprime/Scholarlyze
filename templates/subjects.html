@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Manage Subjects
+{% endblock %}
+
+{% block main %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Manage Your Subjects</h2>
+
+    <!-- Form to add a new subject -->
+    <div class="row">
+        <div class="col-md-5 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0 text-center">Add a New Subject</h5>
+                </div>
+                <div class="card-body">
+                    <form action="/subjects" method="post">
+                        <div class="mb-3">
+                            <label for="subject_name" class="form-label fw-bold">Subject Name:</label>
+                            <input type="text" class="form-control border-primary" id="subject_name" name="subject_name" placeholder="Enter subject name" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Add Subject</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- List of existing subjects -->
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0 text-center">Your Subjects</h5>
+                </div>
+                <div class="card-body p-0">
+                    {% if subjects %}
+                        <ul class="list-group list-group-flush">
+                            {% for subject in subjects %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">{{ subject.name }}</span>
+                                    <form action="/delete_subject/{{ subject.id }}" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this subject?');">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="alert alert-info text-center m-3" role="alert">
+                            You haven't added any subjects yet. Use the form above to add your first subject!
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <strong>Total:</strong> {{ subjects|length }} subject{% if subjects|length != 1 %}s{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
