@@ -10,6 +10,25 @@ Scholarlyze is a personal study tracker web application designed to help users l
 - **History and Statistics**: View study history, filter sessions by subject or date, and analyze subject-wise study time.
 - **Responsive Design**: Mobile-friendly interface using Bootstrap.
 
+## Video
+
+Project Demo: https://youtu.be/4zcWylWrL7Y
+
+## Screenshots
+
+![ss1](https://github.com/user-attachments/assets/d1700963-fe37-4ca1-8dd7-026eda49cbf3)
+
+![ss2](https://github.com/user-attachments/assets/45e6c583-97cf-4df6-8e95-3b5d4a963624)
+
+![ss3](https://github.com/user-attachments/assets/5904f002-4ffd-40e9-96af-cbd6f11c0dd2)
+
+![ss4](https://github.com/user-attachments/assets/8c9babdc-82fa-427c-b951-b4e887e5bb3d)
+
+![ss5](https://github.com/user-attachments/assets/6a09b5c4-cf14-4315-b6b2-b7d980583e57)
+
+![ss6](https://github.com/user-attachments/assets/979384b2-a731-40ac-90f9-024148277bb4)
+
+
 ## Technologies Used
 
 - **Backend**: Flask
@@ -39,7 +58,7 @@ Scholarlyze is a personal study tracker web application designed to help users l
 
 4. Set up the database:
    ```bash
-   sqlite3 exa.db < query.sql
+   sqlite3 studylog.db < query.sql
    ```
 
 5. Run the application:
